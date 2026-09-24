@@ -1,0 +1,78 @@
+name: 任务（marriage-love 线）
+description: 给恋爱/相亲角线派一件可验收的活 —— 验收标准必填，写不出来就别建
+title: "[任务] "
+labels:
+  - "line:marriage-love"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        建完这条 issue 后，请在右侧手动补三件事，模板强制不了：
+        - **Assignees**：只选 1 个人。挂两个人等于没挂。
+        - **Priority / Effort / Target date**：组织原生字段，不留空。
+        - 改代码的每个 PR，正文写 `Closes traffic-placement/<仓库>#<本issue编号>`，只有合进默认分支（这几仓库都是 `main`）才会自动关。
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: 类型
+      description: 只决定用什么方式验收，不要拿它当状态
+      options:
+        - 功能
+        - 缺陷
+        - 基建/部署
+        - 文档
+    validations:
+      required: true
+
+  - type: dropdown
+    id: product
+    attributes:
+      label: 产品
+      options:
+        - 恋爱小程序（marriage_love_*）
+        - 相亲角（matchmaking_corner_*）
+        - 两条都要
+    validations:
+      required: true
+
+  - type: textarea
+    id: repos
+    attributes:
+      label: 涉及仓库
+      description: 只填本条 issue 要改代码的仓库；跨仓库就各建一条再用 sub-issue 挂到同一个需求下
+      value: |
+        - traffic-placement/
+    validations:
+      required: true
+
+  - type: textarea
+    id: why
+    attributes:
+      label: 背景与目标
+      description: 为什么现在要做，做完之后什么变了。写现状，不写"优化一下"
+      placeholder: |
+        现状：…
+        目标：…
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: 验收标准
+      description: 必须能被别人复核。空泛的"能正常用"不算
+      placeholder: |
+        - [ ] 具体可观测的结果 1（含页面路径/接口/数据）
+        - [ ] 具体可观测的结果 2
+        - [ ] 回归：……不受影响
+    validations:
+      required: true
+
+  - type: textarea
+    id: block
+    attributes:
+      label: 阻塞与依赖（没有就写"无"）
+      placeholder: 无
+    validations:
+      required: false

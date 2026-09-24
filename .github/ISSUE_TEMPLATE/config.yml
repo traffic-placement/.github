@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 派活规范（先读这个）
+    url: https://github.com/traffic-placement/.github/blob/main/docs/task-assignment-policy.md
+    about: 任务怎么建、谁 assign、什么算完成，都写在这里
+  - name: 线上事故
+    url: https://github.com/traffic-placement/.github/blob/main/docs/task-assignment-policy.md#r9-升级规则
+    about: 生产问题不要先开 issue，直接按升级规则找人，事后补单
